@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flexy Lover</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      background: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/1.jpg') no-repeat center center;
+      background-size: cover; /* фото всегда заполняет весь экран, обрезается по краям */
+      background-position: top center;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 13rem;
+      overflow: hidden;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0.9;
+      background: #0b0b64; /* мягко-синий */
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 0.75rem 2.5rem;
+      border-radius: 20px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      user-select: none;
+    }
+    .btn img {
+      height: 1.5rem;
+      width: auto;
+    }
+    .btn:hover {
+      background: #00006f; /* ярче при наведении */
+    }
+    .btn:active {
+      transform: scale(0.95); /* чуть уменьшается при нажатии */
+    }
+    @media (min-width: 768px) {
+      .btn {
+        font-size: 1.5rem;
+        padding: 0.75rem 2.5rem;
+      }
+    }
 
+    @media (min-width: 1024px) {
+      body {
+        background-position: top 20% center; /* немного обрезаем сверху на ПК */
+      }
+      .btn {
+        font-size: 2.2rem;
+        padding: 1.25rem 6rem;
+      }
+      .btn img {
+        height: 2rem;
+      }
+    }
+    }
+  </style>
+</head>
+<body>
+  <a href="https://fansly.com/NikaLegran/t11" class="btn">
+    <img src="https://fansly.com/assets/images/fansly_logo_only.webp" alt="Fansly Logo">
+    FANSLY
+  </a>
+</body>
+</html>
