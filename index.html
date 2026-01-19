@@ -12,73 +12,55 @@
     }
     body {
       height: 100vh;
-      background: linear-gradient(135deg, #000 0%, #1a0033 100%);
-      color: white;
-      font-family: Arial, Helvetica, sans-serif;
+      background: url('DSC1467.jpg') no-repeat center center;
+      background-size: cover; /* фото всегда заполняет весь экран, обрезается по краям */
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
+      align-items: flex-end;
+      padding-bottom: 10rem;
       overflow: hidden;
     }
-    .container {
-      max-width: 90%;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
-      color: #ff69b4;
-      text-shadow: 0 0 15px rgba(255,105,180,0.7);
-    }
-    p {
-      font-size: 1.3rem;
-      margin-bottom: 3rem;
-      opacity: 0.9;
-      max-width: 600px;
-    }
     .btn {
-      display: inline-block;
-      background: #ff69b4;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0.9;
+      background: #0b0b64; /* мягко-синий */
       color: white;
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       font-weight: bold;
-      padding: 18px 60px;
-      border-radius: 50px;
+      padding: 15px 40px;
+      border-radius: 25px;
       text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(255,105,180,0.4);
-      margin: 15px;
+      border: none;
+      cursor: pointer;
+      user-select: none;
+    }
+    .btn img {
+      height: 48px;
+      width: auto;
     }
     .btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(255,105,180,0.6);
-      background: #ff1493;
+      background: #00006f; /* ярче при наведении */
     }
-    .btn-onlyfans {
-      background: #a020f0;
-      box-shadow: 0 10px 30px rgba(160,32,240,0.4);
-    }
-    .btn-onlyfans:hover {
-      background: #8a2be2;
-      box-shadow: 0 15px 40px rgba(160,32,240,0.6);
+    .btn:active {
+      transform: scale(0.95); /* чуть уменьшается при нажатии */
     }
     @media (max-width: 600px) {
-      h1 { font-size: 2.5rem; }
-      p { font-size: 1.1rem; }
-      .btn { font-size: 1.5rem; padding: 15px 50px; }
+      .btn {
+        font-size: 1.8rem;
+        padding: 16px 50px;
+      }
+      .btn img {
+        height: 40px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Flexy Lover</h1>
-    <p>Exclusive content, customs & more 💦</p>
-
-    <a href="https://fansly.com/NikaLegran/t9" class="btn">Fansly</a>
-    <!-- Просто раскомментируй эту строку, когда добавишь OnlyFans -->
-    <!-- <a href="https://onlyfans.com/твой_ник" class="btn btn-onlyfans">OnlyFans</a> -->
-  </div>
+  <a href="https://fansly.com/NikaLegran" class="btn">
+    <img src="https://fansly.com/assets/images/fansly_logo_only.webp" alt="Fansly Logo">
+    FANSLY
+  </a>
 </body>
 </html>
