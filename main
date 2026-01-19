@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flexy Lover</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #000 0%, #1a0033 100%);
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .container {
+      max-width: 90%;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: #ff69b4;
+      text-shadow: 0 0 15px rgba(255,105,180,0.7);
+    }
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 3rem;
+      opacity: 0.9;
+      max-width: 600px;
+    }
+    .btn {
+      display: inline-block;
+      background: #ff69b4;
+      color: white;
+      font-size: 1.8rem;
+      font-weight: bold;
+      padding: 18px 60px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(255,105,180,0.4);
+      margin: 15px;
+    }
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(255,105,180,0.6);
+      background: #ff1493;
+    }
+    .btn-onlyfans {
+      background: #a020f0;
+      box-shadow: 0 10px 30px rgba(160,32,240,0.4);
+    }
+    .btn-onlyfans:hover {
+      background: #8a2be2;
+      box-shadow: 0 15px 40px rgba(160,32,240,0.6);
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.5rem; }
+      p { font-size: 1.1rem; }
+      .btn { font-size: 1.5rem; padding: 15px 50px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Flexy Lover</h1>
+    <p>Exclusive content, customs & more 💦</p>
+
+    <a href="https://fansly.com/NikaLegran/t9" class="btn">Fansly</a>
+    <!-- Просто раскомментируй эту строку, когда добавишь OnlyFans -->
+    <!-- <a href="https://onlyfans.com/твой_ник" class="btn btn-onlyfans">OnlyFans</a> -->
+  </div>
+</body>
+</html>
