@@ -55,6 +55,18 @@
       .btn img {
         height: 40px;
       }
+      /* Обрезка фото сверху только на ПК */
+    @media (min-width: 768px) {
+      body {
+        background-position: top -10% center; /* немного обрезаем сверху на ПК */
+      }
+    }
+
+    @media (max-width: 767px) {
+      body {
+        background-position: top center; /* на мобильных — верх не обрезается */
+      }
+    }
     }
   </style>
 </head>
