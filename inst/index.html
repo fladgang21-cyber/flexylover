@@ -13,110 +13,138 @@
   <link rel="manifest" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/site.webmanifest">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      min-height: 100vh;                    /* лучше чем height: 100vh на iOS */
-      background: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/2.jpg') no-repeat center center;
-      background-size: cover;
-      background-position: top center;
+body {
+  min-height: 100vh;
+  background: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/2.jpg') no-repeat center center;
+  background-size: cover;
+  background-position: top center;
 
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 1.4rem;
-      padding: 1.5rem 1rem 9rem 1rem;      /* меньше снизу на мобилках, чтобы кнопки не улетали далеко */
-      overflow: hidden;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.5rem 1rem 9rem 1rem;      /* базовый отступ снизу для мобильных */
+  overflow: hidden;
+}
 
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.9rem;
-      width: 100%;
-      max-width: 90vw;                      /* почти вся ширина экрана на смартфонах */
-      min-width: 240px;                     /* не даёт кнопке стать слишком узкой */
-      padding: 1rem 2rem;
-      font-size: 1.15rem;
-      font-weight: bold;
-      color: white;
-      background: #0b0b64;
-      border-radius: 9999px;
-      text-decoration: none;
-      opacity: 0.92;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      user-select: none;
-      touch-action: manipulation;           /* улучшает отклик на тач */
-      min-height: 48px;                     /* комфортный тач-таргет по Apple/Google рекомендациям */
-    }
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  width: 100%;
+  max-width: 90vw;
+  min-width: 240px;
+  padding: 1rem 2rem;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: white;
+  background: #0b0b64;
+  border-radius: 16px;                  /* ← умеренное скругление вместо 9999px */
+  text-decoration: none;
+  opacity: 0.92;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  min-height: 48px;
+}
 
-    .btn img {
-      height: 1.5rem;
-      width: auto;
-    }
+.btn img {
+  height: 1.5rem;
+  width: auto;
+}
 
-    .btn:hover {
-      background: #00006f;
-      opacity: 1;
-    }
+.btn:hover {
+  background: #00006f;
+  opacity: 1;
+}
 
-    .btn:active {
-      transform: scale(0.96);
-    }
+.btn:active {
+  transform: scale(0.96);
+}
 
-    /* Планшеты / большие телефоны (~ ≥ 481 px) */
-    @media (min-width: 481px) {
-      body {
-        gap: 1.6rem;
-        padding-bottom: 11rem;
-      }
-      .btn {
-        max-width: 22rem;
-        font-size: 1.35rem;
-        padding: 1.1rem 2.5rem;
-        gap: 1rem;
-      }
-      .btn img {
-        height: 1.7rem;
-      }
-    }
+/* ────────────────────────────────────────
+   ~481–699 px (средние телефоны / маленькие планшеты)
+───────────────────────────────────────── */
+@media (min-width: 481px) {
+  body {
+    gap: 1.6rem;
+    padding-bottom: 10rem;
+  }
+  .btn {
+    max-width: 22rem;
+    font-size: 1.35rem;
+    padding: 1.1rem 2.5rem;
+    gap: 1rem;
+  }
+  .btn img {
+    height: 1.7rem;
+  }
+}
 
-    /* Десктоп / большие экраны (≥ 1024 px) */
-    @media (min-width: 1024px) {
-      body {
-        background-position: top 20% center;
-        padding: 2rem 3rem 13rem;
-        gap: 2rem;
-      }
-      .btn {
-        max-width: 28rem;
-        font-size: 1.9rem;
-        padding: 1.4rem 4.5rem;
-        gap: 1.3rem;
-      }
-      .btn img {
-        height: 2.3rem;
-      }
-    }
+/* ────────────────────────────────────────
+   ~700–1023 px — увеличенные кнопки + больше воздуха снизу
+───────────────────────────────────────── */
+@media (min-width: 700px) {
+  body {
+    gap: 2rem;
+    padding-bottom: 14rem;              /* ← заметно больше отступа */
+  }
+  .btn {
+    max-width: 26rem;
+    font-size: 1.6rem;
+    padding: 1.3rem 3.2rem;
+    gap: 1.2rem;
+    border-radius: 20px;                /* чуть больше скругление на среднем экране */
+  }
+  .btn img {
+    height: 2rem;
+  }
+}
 
-    /* Очень большие экраны — опционально, если нужно */
-    @media (min-width: 1400px) {
-      .btn {
-        max-width: 32rem;
-        font-size: 2.1rem;
-        padding: 1.6rem 5rem;
-      }
-      .btn img {
-        height: 2.5rem;
-      }
-    }
+/* ────────────────────────────────────────
+   ≥ 1024 px — десктоп / большие экраны
+───────────────────────────────────────── */
+@media (min-width: 1024px) {
+  body {
+    background-position: top 20% center;
+    padding: 2rem 3rem 16rem;           /* ← ещё больше отступа снизу */
+    gap: 2.2rem;
+  }
+  .btn {
+    max-width: 30rem;
+    font-size: 1.95rem;
+    padding: 1.4rem 5rem;
+    gap: 1.4rem;
+    border-radius: 24px;                /* комфортное скругление для десктопа */
+  }
+  .btn img {
+    height: 2.4rem;
+  }
+}
+
+/* Очень большие экраны (опционально) */
+@media (min-width: 1400px) {
+  body {
+    padding-bottom: 18rem;
+  }
+  .btn {
+    max-width: 34rem;
+    font-size: 2.1rem;
+    padding: 1.6rem 6rem;
+  }
+  .btn img {
+    height: 2.6rem;
+  }
+}
   </style>
 </head>
 <body>
