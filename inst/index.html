@@ -154,11 +154,14 @@ body {
     padding-bottom: 5rem;
   }
   .btn {
-    max-width: 32rem;                  /* можно чуть шире на широких экранах */
-    font-size: clamp(1.4rem, 4vw, 2.2rem);
-    padding: 1.2rem 4rem;
+    max-width: 25rem;                  /* можно чуть шире на широких экранах */
+    padding: 0.5rem 0.5rem;
   }
 }
+@media (orientation: portrait) and (min-height: 812px) and (max-width: 500px) {
+  body {
+    padding-bottom: 13vh;              /* большой отступ снизу → кнопки поднимаются выше */
+  }
   </style>
 </head>
 <body>
