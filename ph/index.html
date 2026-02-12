@@ -5,81 +5,176 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Flexy Lover</title>
   <link rel="icon" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/android-chrome-512x512.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/favicon-16x16.png" />
-  <link rel="manifest" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/site.webmanifest" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      height: 100vh;
-      background: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/2.jpg') no-repeat center center;
-      background-size: cover; /* фото всегда заполняет весь экран, обрезается по краям */
-      background-position: top center;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      padding-bottom: 13rem;
-      overflow: hidden;
-    }
-    .btn {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      opacity: 0.9;
-      background: #0b0b64; /* мягко-синий */
-      color: white;
-      font-size: 1.5rem;
-      font-weight: bold;
-      padding: 0.75rem 2.5rem;
-      border-radius: 20px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      user-select: none;
-    }
-    .btn img {
-      height: 1.5rem;
-      width: auto;
-    }
-    .btn:hover {
-      background: #00006f; /* ярче при наведении */
-    }
-    .btn:active {
-      transform: scale(0.95); /* чуть уменьшается при нажатии */
-    }
-    @media (min-width: 768px) {
-      .btn {
-        font-size: 1.5rem;
-        padding: 0.75rem 2.5rem;
-      }
-    }
+  <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/site.webmanifest">
 
-    @media (min-width: 1024px) {
-      body {
-        background-position: top 20% center; /* немного обрезаем сверху на ПК */
-      }
-      .btn {
-        font-size: 2.2rem;
-        padding: 1.25rem 6rem;
-      }
-      .btn img {
-        height: 2rem;
-      }
-    }
-    }
+  <style>
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/1123.JPG') no-repeat center center;
+  background-size: cover;
+  background-position: center center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.5rem 1rem 9rem 1rem;      /* базовый отступ снизу для мобильных */
+  overflow: hidden;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  width: 100%;
+  max-width: 90vw;
+  min-width: 240px;
+  padding: 1rem 2rem;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: white;
+  background: #0b0b64;
+  border-radius: 16px;                  /* ← умеренное скругление вместо 9999px */
+  text-decoration: none;
+  opacity: 0.92;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  min-height: 48px;
+}
+
+.btn img {
+  height: 1.5rem;
+  width: auto;
+}
+
+.btn:hover {
+  background: #00006f;
+  opacity: 1;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* ────────────────────────────────────────
+   ~481–699 px (средние телефоны / маленькие планшеты)
+───────────────────────────────────────── */
+@media (min-width: 481px) {
+  body {
+    gap: 1.6rem;
+    padding-bottom: 10rem;
+  }
+  .btn {
+    max-width: 22rem;
+    font-size: 1.35rem;
+    padding: 1.1rem 2.5rem;
+    gap: 1rem;
+  }
+  .btn img {
+    height: 1.7rem;
+  }
+}
+
+/* ────────────────────────────────────────
+   ~700–1023 px — увеличенные кнопки + больше воздуха снизу
+───────────────────────────────────────── */
+@media (min-width: 700px) {
+  body {
+    gap: 2rem;
+    padding-bottom: 13rem;              /* ← заметно больше отступа */
+  }
+  .btn {
+    max-width: 26rem;
+    font-size: 1.6rem;
+    padding: 1.3rem 3.2rem;
+    gap: 1.2rem;
+    border-radius: 20px;                /* чуть больше скругление на среднем экране */
+  }
+  .btn img {
+    height: 2rem;
+  }
+}
+
+/* ────────────────────────────────────────
+   ≥ 1024 px — десктоп / большие экраны
+───────────────────────────────────────── */
+@media (min-width: 1024px) {
+  body {
+    background-position: center 40%;
+    padding: 2rem 3rem 13rem;           /* ← ещё больше отступа снизу */
+    gap: 2.2rem;
+  }
+  .btn {
+    max-width: 30rem;
+    font-size: 1.95rem;
+    padding: 1.4rem 5rem;
+    gap: 1.4rem;
+    border-radius: 24px;                /* комфортное скругление для десктопа */
+  }
+  .btn img {
+    height: 2.4rem;
+  }
+}
+
+/* Очень большие экраны (опционально) */
+@media (min-width: 1400px) {
+  body {
+    background-position: center 40%;
+    padding-bottom: 13rem;
+  }
+  .btn {
+    max-width: 34rem;
+    font-size: 2.1rem;
+    padding: 1.6rem 6rem;
+  }
+  .btn img {
+    height: 2.6rem;
+  }
+}
+
+@media (max-height: 580px) and (min-width: 700px),
+       (orientation: landscape) and (max-height: 650px) {
+  body {
+    background-position: center 40%;
+    padding-bottom: 5rem;
+  }
+  .btn {
+    max-width: 25rem;                  /* можно чуть шире на широких экранах */
+    padding: 0.5rem 0.5rem;
+  }
+}
+@media (orientation: portrait) and (min-height: 812px) and (max-width: 500px) {
+  body {
+    padding-bottom: 13rem;              /* большой отступ снизу → кнопки поднимаются выше */
+  }
   </style>
 </head>
 <body>
-  <a href="https://fansly.com/NikaLegran/t11" class="btn">
+
+  <a href="https://fansly.com/NikaLegran/t9" class="btn" target="_blank" rel="noopener">
     <img src="https://fansly.com/assets/images/fansly_logo_only.webp" alt="Fansly Logo">
     FANSLY
   </a>
+
+  <a href="https://t.me/flexyloverr" class="btn" target="_blank" rel="noopener">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Telegram_logo_icon.svg/250px-Telegram_logo_icon.svg.png" alt="Telegram Logo">
+    TELEGRAM
+  </a>
+
 </body>
 </html>
