@@ -146,6 +146,19 @@ body {
     height: 2.6rem;
   }
 }
+
+@media (max-height: 580px) and (min-width: 700px),
+       (orientation: landscape) and (max-height: 650px) {
+  body {
+    background-position: center 40%;
+    padding-bottom: 5rem;
+  }
+  .btn {
+    max-width: 32rem;                  /* можно чуть шире на широких экранах */
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    padding: 1.2rem 4rem;
+  }
+}
   </style>
 </head>
 <body>
