@@ -62,13 +62,18 @@
       transform: scale(0.95); /* чуть уменьшается при нажатии */
     }
     
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
+      body {
+      padding-bottom: 8rem;
+      }
       .btn {
+        font-size: 1rem;
+        padding: 0.75rem 2.5rem;
         max-width: 10rem;
       }
     }
     
-    @media (min-width: 768px) {
+    @media (max-width: 1024px) {
       body {
       padding-bottom: 8rem;
       }
