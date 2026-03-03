@@ -11,170 +11,228 @@
   <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/favicon-16x16.png">
   <link rel="manifest" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/site.webmanifest">
+  
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-  <style>
-   * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.bg-carousel {
+  position: fixed;                    /* фиксируем к вьюпорту, а не к body */
+  inset: 0;                           /* растягиваем на весь экран */
+  z-index: -2;                        /* под затемнением и контентом */
+  background-size: cover;
+  background-position: top center;    /* верх всегда прижат к верху экрана */
+  background-repeat: no-repeat;
+  pointer-events: none;               /* не мешает кликам по кнопкам */
+  animation: bg-slideshow 8s infinite;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Анимация теперь на .bg-carousel (background-image меняется) */
+@keyframes bg-slideshow {
+  0%, 25%  { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b1.JPG'); }
+  33%, 58% { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b2.JPG'); }
+  66%, 91% { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b3.JPG'); }
+  100%     { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b1.JPG'); }
 }
 
 body {
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
-  background: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/1123.JPG') no-repeat center center;
-  background-size: cover;
-  background-position: center center;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 1.4rem;
-  padding: 1.5rem 1rem 9rem 1rem;      /* базовый отступ снизу для мобильных */
+  background: none;
+  display: flex;                    /* ← обязательно */
+  justify-content: center;          /* горизонтально центр */
+  align-items: center;              /* вертикально центр */
   overflow: hidden;
+  position: relative;
+  font-family: system-ui, sans-serif;
 }
 
+  .content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 92vw;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  }
+
+
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    width: 100%;
+    align-items: center;
+    margin-top: 3.5rem;
+  }
+
 .btn {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.9rem;
+  gap: 1rem;
   width: 100%;
   max-width: 90vw;
-  min-width: 240px;
-  padding: 1rem 2rem;
-  font-size: 1.15rem;
-  font-weight: bold;
+  min-height: 62px;
+  padding: 1.2rem 2.4rem;
+  font-size: clamp(1.4rem, 2.8vw, 2.0rem);
+  font-weight: 600;
   color: white;
-  background: #0b0b64;
-  border-radius: 16px;                  /* ← умеренное скругление вместо 9999px */
-  text-decoration: none;
-  opacity: 0.92;
-  transition: all 0.2s ease;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+
+  background: rgba(30,30,50,0.45);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 9999px;
+
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.12);
+
+  transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
   user-select: none;
-  touch-action: manipulation;
-  min-height: 48px;
+  text-decoration: none;
+  overflow: hidden;
 }
 
-.btn img {
-  height: 1.5rem;
-  width: auto;
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.18) 0%,
+    rgba(255,255,255,0.04) 40%,
+    transparent 60%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.btn:hover {
-  background: #00006f;
+.btn:hover::before {
   opacity: 1;
 }
 
+.btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 14px 40px rgba(0, 0, 0, 0.42),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+}
+
 .btn:active {
-  transform: scale(0.96);
+  transform: translateY(-1px) scale(0.97);
+  transition: all 0.14s ease;
 }
 
-/* ────────────────────────────────────────
-   ~481–699 px (средние телефоны / маленькие планшеты)
-───────────────────────────────────────── */
-@media (min-width: 481px) {
-  body {
-    gap: 1.6rem;
-    padding-bottom: 10rem;
-  }
-  .btn {
-    max-width: 22rem;
-    font-size: 1.35rem;
-    padding: 1.1rem 2.5rem;
-    gap: 1rem;
-  }
-  .btn img {
-    height: 1.7rem;
-  }
+.btn img {
+  height: 1.6rem;
+  width: auto;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
 }
 
-/* ────────────────────────────────────────
-   ~700–1023 px — увеличенные кнопки + больше воздуха снизу
-───────────────────────────────────────── */
-@media (min-width: 700px) {
-  body {
-    gap: 2rem;
-    padding-bottom: 13rem;              /* ← заметно больше отступа */
+  /* ===================== МЕДИА-ЗАПРОСЫ ===================== */
+
+  @media (min-width: 481px) {
+    .content { gap: 4.5rem; }
+    .btn { max-width: 360px; padding: 1.35rem 3rem; }
   }
-  .btn {
-    max-width: 26rem;
-    font-size: 1.6rem;
-    padding: 1.3rem 3.2rem;
+
+  @media (min-width: 700px) {
+    .content { gap: 5.5rem; }
+    .btn { max-width: 380px; font-size: 1.7rem; padding: 1.45rem 3.5rem; }
+    .btn img { height: 2.1rem; }
+  }
+
+  @media (min-width: 1025px) {
+    .bg-carousel {
+    background-position: top 13% center !important;
+    /* или любое другое значение, например top 12% center, top 20% center и т.д. */
+    }
+    .btn {
+    max-width: 500px;
+    min-height: 100px;
+    padding: 1.4rem 3rem;
+    font-size: clamp(1.5rem, 3.4vw, 2.4rem);
     gap: 1.2rem;
-    border-radius: 20px;                /* чуть больше скругление на среднем экране */
+    }
+    .btn img {
+    height: 2.5rem;
+    }
+    .content {
+    transform: translateY(5rem);      /* или 6–8rem — подбери визуально */
+    /* Альтернатива: если хочешь ближе к низу */
+    /* justify-content: flex-end; */
+    /* padding-bottom: 8rem; */
+    }
   }
-  .btn img {
-    height: 2rem;
-  }
-}
 
-/* ────────────────────────────────────────
-   ≥ 1024 px — десктоп / большие экраны
-───────────────────────────────────────── */
-@media (min-width: 1024px) {
-  body {
-    background-position: center 40%;
-    padding: 2rem 3rem 13rem;           /* ← ещё больше отступа снизу */
-    gap: 2.2rem;
+  @media (orientation: landscape) {
+  .bg-carousel {
+    background-position: top 15% center;
+    /* или любое другое значение, например top 12% center, top 20% center и т.д. */
   }
-  .btn {
-    max-width: 30rem;
-    font-size: 1.95rem;
-    padding: 1.4rem 5rem;
-    gap: 1.4rem;
-    border-radius: 24px;                /* комфортное скругление для десктопа */
+  .content {
+    justify-content: flex-end;        /* прижимает содержимое к низу */
+    padding-bottom: 2rem;             /* отступ снизу — подбери под себя: 2rem–5rem */
+    min-height: 100vh;                /* гарантирует, что контент занимает всю высоту */
+  }  
   }
-  .btn img {
-    height: 2.4rem;
+  
+  @media (min-height: 480px) and (orientation: landscape) {
+  .content {
+    justify-content: flex-end;        /* прижимает содержимое к низу */
+    padding-bottom: 15%;             /* отступ снизу — подбери под себя: 2rem–5rem */
+    min-height: 100vh;                /* гарантирует, что контент занимает всю высоту */
+  }  
+  .bg-carousel {
+    background-position: top 18% center;
+    /* или любое другое значение, например top 12% center, top 20% center и т.д. */
   }
-}
-
-/* Очень большие экраны (опционально) */
-@media (min-width: 1400px) {
-  body {
-    background-position: center 40%;
-    padding-bottom: 13rem;
   }
-  .btn {
-    max-width: 34rem;
-    font-size: 2.1rem;
-    padding: 1.6rem 6rem;
-  }
-  .btn img {
-    height: 2.6rem;
-  }
-}
-
-@media (max-height: 580px) and (min-width: 700px),
-       (orientation: landscape) and (max-height: 650px) {
-  body {
-    background-position: center 40%;
-    padding-bottom: 5rem;
-  }
-  .btn {
-    max-width: 25rem;                  /* можно чуть шире на широких экранах */
-    padding: 0.5rem 0.5rem;
-  }
-}
-@media (orientation: portrait) and (min-height: 812px) and (max-width: 500px) {
-  body {
-    padding-bottom: 13rem;              /* большой отступ снизу → кнопки поднимаются выше */
-  }
-  </style>
+  
+</style>
 </head>
 <body>
+    <div class="bg-carousel"></div>
+<div class="content">
+    <div class="btn-group">
+      <a href="https://fansly.com/NikaLegran/t9" class="btn" target="_blank" rel="noopener">
+        <img src="https://fansly.com/assets/images/fansly_logo_only.webp" alt="Fansly Logo">
+        FANSLY
+      </a>
 
-  <a href="https://fansly.com/NikaLegran/t9" class="btn" target="_blank" rel="noopener">
-    <img src="https://fansly.com/assets/images/fansly_logo_only.webp" alt="Fansly Logo">
-    FANSLY
-  </a>
-
-  <a href="https://t.me/flexyloverr" class="btn" target="_blank" rel="noopener">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Telegram_logo_icon.svg/250px-Telegram_logo_icon.svg.png" alt="Telegram Logo">
-    TELEGRAM
-  </a>
-
+      <a href="https://t.me/flexyloverr" class="btn" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Telegram_logo_icon.svg/250px-Telegram_logo_icon.svg.png" alt="Telegram Logo">
+        TELEGRAM
+      </a>
+    </div>
+</div>
 </body>
 </html>
