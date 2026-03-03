@@ -26,7 +26,10 @@
   background-size: cover;
   background-position: top center;    /* верх всегда прижат к верху экрана */
   background-repeat: no-repeat;
-  pointer-events: none;               /* не мешает кликам по кнопкам */
+  pointer-events: none;     
+  will-change: background-image;
+  transform: translateZ(0);                    /* аппаратное ускорение */
+  image-rendering: -webkit-optimize-contrast;/* не мешает кликам по кнопкам */
   animation: bg-slideshow 16s infinite;
 }
 
@@ -40,10 +43,10 @@
 
 /* Анимация теперь на .bg-carousel (background-image меняется) */
 @keyframes bg-slideshow {
-  0%, 25%  { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b1.JPG'); }
-  33%, 58% { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b2.JPG'); }
-  66%, 91% { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b3.JPG'); }
-  100%     { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b1.JPG'); }
+  0%,   24%  { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b1.JPG'); }
+  25%,  49%  { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b2.JPG'); }
+  50%,  74%  { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b3.JPG'); }
+  75%,  100% { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b1.JPG'); }
 }
 
 body {
