@@ -1,1 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta property="og:title" content="Flexy Lover" />
+  <meta property="og:description" content="More of me 💕" />
+  <meta property="og:image" content="https://flexylover.com/image/banner.JPG" />  <!-- Твоя картинка! -->
+  <meta property="og:image:width" content="3072" />
+  <meta property="og:image:height" content="1612" />
+  <meta property="og:image:alt" content="Flexy Lover profile photo" />
+  <meta property="og:url" content="https://flexylover.com/" />
+  <meta property="og:type" content="website" />
+  <title>Flexy Lover</title>
+  <link rel="preload" as="image" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b1.JPG">
+  <link rel="preload" as="image" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b2.JPG">
+  <link rel="preload" as="image" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b3.JPG">
+  <link rel="icon" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/favicon-16x16.png">
+  <link rel="manifest" href="https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/favicon/site.webmanifest">
+  
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
+.bg-carousel {
+  position: fixed;                    /* фиксируем к вьюпорту, а не к body */
+  inset: 0;                           /* растягиваем на весь экран */
+  z-index: -2;                        /* под затемнением и контентом */
+  background-size: cover;
+  background-position: top center;    /* верх всегда прижат к верху экрана */
+  background-repeat: no-repeat;
+  pointer-events: none;     
+  will-change: background-image;
+  transform: translate3d(0,0,0);                  /* аппаратное ускорение */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  animation: bg-slideshow 12s infinite;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Анимация теперь на .bg-carousel (background-image меняется) */
+@keyframes bg-slideshow {
+  0%,    33%  { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b1.JPG'); }
+  33.1%, 66%  { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b2.JPG'); }
+  66.1%, 99%  { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b3.JPG'); }
+  99.1%, 100% { background-image: url('https://raw.githubusercontent.com/fladgang21-cyber/flexylover/refs/heads/main/image/b1.JPG'); }
+}
+  
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: none;
+  display: flex;                    /* ← обязательно */
+  justify-content: center;          /* горизонтально центр */
+  align-items: center;              /* вертикально центр */
+  overflow: hidden;
+  position: relative;
+  font-family: system-ui, sans-serif;
+}
+
+  .content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 92vw;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  }
+
+
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    width: 100%;
+    align-items: center;
+    margin-top: 3.5rem;
+  }
+
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 90vw;
+  min-height: 62px;
+  padding: 1.2rem 2.4rem;
+  font-size: clamp(1.4rem, 2.8vw, 2.0rem);
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+
+  background: rgba(30,30,50,0.45);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 9999px;
+
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.12);
+
+  transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.18) 0%,
+    rgba(255,255,255,0.04) 40%,
+    transparent 60%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 14px 40px rgba(0, 0, 0, 0.42),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.97);
+  transition: all 0.14s ease;
+}
+
+.btn img {
+  height: 1.6rem;
+  width: auto;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+}
+
+  /* ===================== МЕДИА-ЗАПРОСЫ ===================== */
+
+  @media (min-width: 481px) {
+    .content { gap: 4.5rem; }
+    .btn { max-width: 360px; padding: 1.35rem 3rem; }
+  }
+
+  @media (min-width: 700px) {
+    .content { gap: 5.5rem; }
+    .btn { max-width: 380px; font-size: 1.7rem; padding: 1.45rem 3.5rem; }
+    .btn img { height: 2.1rem; }
+  }
+
+  @media (min-width: 1025px) {
+    .bg-carousel {
+    background-position: top 13% center !important;
+    /* или любое другое значение, например top 12% center, top 20% center и т.д. */
+    }
+    .btn {
+    max-width: 500px;
+    min-height: 100px;
+    padding: 1.4rem 3rem;
+    font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+    gap: 1.2rem;
+    }
+    .btn img {
+    height: 2.5rem;
+    }
+    .content {
+    transform: translateY(5rem);      /* или 6–8rem — подбери визуально */
+    /* Альтернатива: если хочешь ближе к низу */
+    /* justify-content: flex-end; */
+    /* padding-bottom: 8rem; */
+    }
+  }
+
+  @media (orientation: landscape) {
+  .bg-carousel {
+    background-position: top 15% center;
+    /* или любое другое значение, например top 12% center, top 20% center и т.д. */
+  }
+  .content {
+    justify-content: flex-end;        /* прижимает содержимое к низу */
+    padding-bottom: 2rem;             /* отступ снизу — подбери под себя: 2rem–5rem */
+    min-height: 100vh;                /* гарантирует, что контент занимает всю высоту */
+  }  
+  }
+  
+  @media (min-height: 480px) and (orientation: landscape) {
+  .content {
+    justify-content: flex-end;        /* прижимает содержимое к низу */
+    padding-bottom: 15%;             /* отступ снизу — подбери под себя: 2rem–5rem */
+    min-height: 100vh;                /* гарантирует, что контент занимает всю высоту */
+  }  
+  .bg-carousel {
+    background-position: top 18% center;
+    /* или любое другое значение, например top 12% center, top 20% center и т.д. */
+  }
+  }
+  
+</style>
+</head>
+<body>
+    <div class="bg-carousel"></div>
+<div class="content">
+    <div class="btn-group">
+      
+      <a href="https://onlyfans.com/flexylover/c15" class="btn" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/en/archive/c/cc/20250726202534%21OnlyFans_logo.svg" alt="OnlyFans Logo">
+        ONLYFANS
+      </a>
+      
+      <a href="https://fansly.com/NikaLegran/t14" class="btn" target="_blank" rel="noopener">
+        <img src="https://fansly.com/assets/images/fansly_logo_only.webp" alt="Fansly Logo">
+        FANSLY
+      </a>
+      
+    </div>
+</div>
+</body>
+</html>
